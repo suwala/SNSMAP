@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/logName">
+        
+    </TextView>
+
+    <EditText
+        android:id="@+id/logUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="8"
+        android:inputType="textEmailAddress" 
+        android:textSize="18sp">
+		
+    </EditText>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/logPass">
+        
+    </TextView>
+    
+     <EditText
+        android:id="@+id/logPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="16"
+         android:inputType="textPassword"
+        android:textSize="18sp" >
+
+    </EditText>
+
+     <TextView
+         android:id="@+id/logErrer"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/logerrer" 
+         android:textSize="18sp"
+         />
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+         <CheckBox
+             android:id="@+id/logCheckBox"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/logCheck" />
+
+      
+
+     </LinearLayout>
+
+     <Button
+         android:id="@+id/button1"
+         style="?android:attr/buttonStyleSmall"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/loginButton" 
+         android:onClick="onClick"/>
+
+</LinearLayout>

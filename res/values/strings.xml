@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">SNSMap</string>
+    <string name="menu_settings">フレンド登録</string>
+    <string name="title_activity_main">SNSMap</string>
+    <string name="menu_timeset">更新間隔の設定</string>
+    <string name="menu_friend">フレンドリスト</string>
+    <string name="menu_now">現在地の取得</string>
+    <string name="menu_gpout">ログの出力</string>
+    <string name="logName">UserName</string>
+    <string name="logPass">PASSWORD</string>
+    <string name="logerrer">名前とパスワードを入力してください</string>
+    <string name="logCheck">保存する</string>
+    <string name="loginButton">LogIn</string>
+    <string name="url">http://192.168.11.16/snsmap/main/</string>
+
+</resources>

@@ -1,0 +1,210 @@
+	@Override
+	public boolean onTap(final GeoPoint gp, MapView map) {
+		// TODO 自動生成されたメソッド・スタブ
+
+		Projection projection = map.getProjection();
+		final Integer hitIndex = hitTest(projection,gp);
+
+		if(hitIndex != -1){
+			
+			Log.d("plusHit",String.valueOf(hitIndex));
+			if(hitIndex ==-2){//-2はnewPointを示す
+				final EditText input;
+				input = new EditText(this.context);
+				new AlertDialog.Builder(context)
+				.setIcon(R.drawable.icon01)
+				.setTitle("メッセージを入力してね")
+				.setView(input)
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO 自動生成されたメソッド・スタブ
+						
+						if(!input.getText().toString().equals("")){//新規ポイントにメッセージが入力された場合
+							Log.d("inputtext","size="+String.valueOf(input.getTextSize()));
+							Log.d("inputtext","size="+String.valueOf(input.getText()));
+							
+							/*
+							OverlayItems item = new OverlayItems();
+							item.setGeoPoint(gp);
+							
+							
+							
+							item.setDate(new SimpleDateFormat("HH':'mm").format(Calendar.getInstance().getTime()));
+							item.setMessage(input.getText().toString());
+							
+							//とりあえずicon01を格納　アイコンの種類によって分岐させたい
+							item.setIconNum(R.drawable.icon01);
+							myItem.add(item);
+							flag = true;
+							*/
+							/*
+							SimpleDateFormat sdf1 = new SimpleDateFormat("'D'yyMMdd");
+							DBHepler dbh = new DBHepler(context,sdf1.format(date));
+							SQLiteDatabase db = dbh.getReadableDatabase();
+							
+							//レコードの数を返す
+							Cursor cursor = db.rawQuery(("SELECT COUNT(*) from "+sdf1.format(date)),null);
+							cursor.moveToFirst();
+							Log.d("plus",String.valueOf(cursor.getInt(0)));
+							
+							ContentValues val = new ContentValues();
+							val.put("Longitude",now.getLongitudeE6());
+							val.put("Latitude",now.getLatitudeE6());
+							val.put("MapDate", new SimpleDateFormat("HH':'mm").format(Calendar.getInstance().getTime()));
+							val.put("Message", input.getText().toString());
+							val.put("Icon", R.drawable.icon02);
+							
+							db.insert(sdf1.format(date), null,val);
+							dbh.close();
+							
+							cursor.moveToFirst();
+							Log.d("plus2",String.valueOf(cursor.getInt(0)));
+							
+							OverlayItems item =new OverlayItems();
+							item.setGeoPoint(new GeoPoint(gp.getLongitudeE6(), gp.getLatitudeE6()));
+							item.setDate(new SimpleDateFormat("HH':'mm").format(Calendar.getInstance().getTime()));
+							item.setMessage(input.getText().toString());
+							item.setIconNum(R.drawable.icon02);
+							myItem.add(item);
+							
+							//myItem.get(hitIndex).setMessage(input.getText().toString());
+							
+							*/
+							
+							DataBaseLogic dbl = new InsertDB();
+							dbl.setData(hitIndex, input.getText().toString(), gp, context, date, myItem);
+							
+							((MainActivity)context).pinClearS();
+							((MainActivity)context).drawOverlay();
+													
+						}									
+					}
+				})
+				.setNegativeButton("キャンセル", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO 自動生成されたメソッド・スタブ
+
+
+					}
+				})
+				.show();//ここまでNewポイント
+			}else if(this.myItem.get(hitIndex).getMessage()==null){//既存のポイントにヒットし　メッセージが空の場合
+				
+				Toast.makeText(context, this.myItem.get(hitIndex).getDate(), Toast.LENGTH_SHORT).show();
+				Log.d("plus",date.toString());
+				final EditText input;
+				input = new EditText(this.context);
+				new AlertDialog.Builder(context)
+				.setIcon(R.drawable.icon01)
+				.setTitle("メッセージを入力してね")
+				.setView(input)
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO 自動生成されたメソッド・スタブ
+						
+						if(!input.getText().toString().equals("")){//入力があった場合
+							Log.d("inputtext","size="+String.valueOf(input.getTextSize()));
+							Log.d("inputtext","size="+String.valueOf(input.getText()));
+							
+							/*
+							OverlayItems item = new OverlayItems();
+							item.setGeoPoint(gp);
+							
+							
+							
+							item.setDate(new SimpleDateFormat("HH':'mm").format(Calendar.getInstance().getTime()));
+							item.setMessage(input.getText().toString());
+							
+							//とりあえずicon01を格納　アイコンの種類によって分岐させたい
+							item.setIconNum(R.drawable.icon01);
+							myItem.add(item);
+							flag = true;
+							*/
+							
+							
+							/*
+							SimpleDateFormat sdf1 = new SimpleDateFormat("'D'yyMMdd");
+							DBHepler dbh = new DBHepler(context,sdf1.format(date));
+							SQLiteDatabase db = dbh.getReadableDatabase();
+							
+							//レコードの数を返す
+							Cursor cursor = db.rawQuery(("SELECT COUNT(*) from "+sdf1.format(date)),null);
+							cursor.moveToFirst();
+							Log.d("plus",String.valueOf(cursor.getInt(0)));
+							
+							ContentValues val = new ContentValues();
+							//val.put("Longitude",gp.getLongitudeE6());
+							//val.put("Latitude",gp.getLatitudeE6());
+							//val.put("MapDate", new SimpleDateFormat("HH':'mm").format(Calendar.getInstance().getTime()));
+							val.put("Message", input.getText().toString());
+							val.put("Icon", R.drawable.icon02);
+							
+							int hit = hitIndex+1;
+							
+							db.update(sdf1.format(date), val,"_id = "+hit,null);
+							
+							myItem.get(hitIndex).setMessage(input.getText().toString());
+							myItem.get(hitIndex).setIconNum(R.drawable.icon02);
+							
+							dbh.close();
+							
+							Log.d("plus",String.valueOf(cursor.getInt(0)));
+							//myItem.get(hitIndex).setMessage(input.getText().toString());
+							*/
+							
+							Toast.makeText(context, myItem.get(hitIndex).getDate(), Toast.LENGTH_SHORT).show();
+							DataBaseLogic dbl = new UpdateDB();
+							dbl.setData(hitIndex, input.getText().toString(), gp, context, date, myItem);
+							((MainActivity)context).pinClearS();
+							((MainActivity)context).drawOverlay();
+													
+						}									
+					}
+				})
+				.setNegativeButton("キャンセル", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO 自動生成されたメソッド・スタブ
+
+
+					}
+				})
+				.show();
+			}else{//既存Pにヒットしメッセージが入力済みの場合
+				/*if(this.myItem.get(hitIndex).getDate() != null){
+					Toast toast = Toast.makeText(context, this.myItem.get(hitIndex).getDate(), Toast.LENGTH_SHORT);
+					toast.setGravity(Gravity.TOP, 0,20);
+					toast.show();
+				}*/
+				Toast.makeText(context, this.myItem.get(hitIndex).getDate()+"  "+this.myItem.get(hitIndex).getMessage(), Toast.LENGTH_SHORT).show();
+				/*
+				SimpleDateFormat sdf1 = new SimpleDateFormat("'D'yyMMdd");
+				DBHepler dbh = new DBHepler(context,sdf1.format(date));
+				SQLiteDatabase db = dbh.getReadableDatabase();
+				
+				ContentValues val = new ContentValues();
+				
+				
+				val.put("Icon", R.drawable.icon02);
+				int hit = hitIndex+1;
+				db.update(sdf1.format(date), val,"_id = "+hit,null);
+				
+				dbh.close();
+				
+				DataBaseLogic dbl = new UpdateDB();
+				dbl.setData(hitIndex, null, gp, context, date, myItem);
+				*/
+				
+			}
+			
+		}
+		
+		return super.onTap(gp, map);
+	}
