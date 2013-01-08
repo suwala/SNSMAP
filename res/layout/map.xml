@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/textGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_group"
+                android:background="@drawable/mainbtnre"
+                android:textColor="#bbbbbb"
+                android:textSize="18sp" />
+            
+            <Button
+                android:id="@+id/btnCount"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/maincountbtn"
+                android:gravity="center"
+                android:text="@string/btn_count"
+                android:textColor="#bbbbbb" />
+            
+            <Button
+                android:id="@+id/btnNow"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/mainnow"
+                android:gravity="center" />
+     
+        </TableRow>
+
+        <com.google.android.maps.MapView
+            android:id="@+id/mapview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:apiKey="0gQIw8VysdzaU32LY95JqTbDII0Zurc4-ORYr5w"
+            android:clickable="true"
+            android:enabled="true" />
+        <!-- D:0gQIw8VysdzaU32LY95JqTbDII0Zurc4-ORYr5w 
+        	 R:0gQIw8VysdzZJCo6gZkgS-BpuHGH1_RBSKSV5kQ-->
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btnShow"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/mainbtnin" />
+
+            <Button
+                android:id="@+id/btnNew"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/mainbtn" />
+
+            <Button
+                android:id="@+id/btnConfig"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/mainsetbtn"/>
+
+            <Button
+                android:id="@+id/btnHelp"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/mainhelpbtn"/>
+
+        </TableRow>
+    </LinearLayout>
+
+</LinearLayout>

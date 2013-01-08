@@ -6,7 +6,7 @@ import java.util.List;
 import android.util.Log;
 
 public class NumToResources {
-	//iconƒiƒ“ƒo[‚ğw’è‚µ‚½‚ç‘ÎÛ‚ÌiconƒŠƒ\[ƒX‚ª‹A‚Á‚Ä‚­‚éƒNƒ‰ƒX
+	//iconï¿½iï¿½ï¿½ï¿½oï¿½[ï¿½ï¿½ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ÎÛ‚ï¿½iconï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 	
 	private static List<Integer> list = new ArrayList<Integer>(); 
 	
@@ -17,7 +17,9 @@ public class NumToResources {
 	}
 	
 	public static Integer toResources(Integer num){
-		return list.get(num-1);
+		if(num >= list.size())
+			num = 0;
+		return list.get(num);
 	}
 
 	private NumToResources(){

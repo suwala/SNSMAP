@@ -13,5 +13,39 @@
     <string name="logCheck">保存する</string>
     <string name="loginButton">LogIn</string>
     <string name="url">http://192.168.11.16/snsmap/main/</string>
-
+    <string name="notAcces">サーバに接続出来ません</string>
+    <string name="session">サーバに接続中です</string>
+    
+    <string name="days_ago">日前</string>
+    <string name="houh_ago">時間前</string>
+    <string name="mouch_ago">分前</string>
+    <string name="sec_ago">秒前</string>
+        
+    <string name="edit_name_hint">グループ名を入力してください</string>
+    <string name="edit_pass_hint">パスワードを設定出来ます※未入力の場合誰でも参加出来ます</string>
+    <string name="edit_pass_set">パスワードの入力</string>
+    <string name="pass_missmatch">パスワードが違います</string>
+    <string name="noname_group">グループ名を入力してください</string>
+    <string name="CREATE_SAME_NAME">同名のグループがあります</string>
+    <string name="CREATE_GROUP">グループを作成しました</string>
+    
+    <string name="btn_newgroup">グループの作成</string>
+    <string name="btn_showgroup">グループの一覧</string>
+    <string name="btn_config">設定</string>
+    <string name="btn_help">ヘルプ</string>
+    <string name="text_group">参加中のグループ</string>
+    <string name="btn_count">人</string>
+    <string name="btn_now">現在地の取得</string>
+    
+    <string name="text_user_name">ユーザー名（16文字まで）</string>
+    <string name="edit_hint_user">※登録した名前でMAP上に公開されます</string>
+    <string name="text_icon_set">使用するアイコンを選択して下さい</string>
+    <string name="toast_noname">名前を入力してください</string>
+	
+    <string name="dialog_messa_title">SendMessage</string>
+    <string name="et_send_hint">0～144文字まで送れます</string>
+    <string name="toast_send_ok">送信しました</string>
+    <string name="toast_send_miss">送信に失敗しました</string>
+    <string name="toast_send_no_group">グループがありません</string>
+    <string name="toast_not_sesson">サーバに接続出来ません</string>
 </resources>

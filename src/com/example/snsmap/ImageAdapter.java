@@ -1,19 +1,21 @@
 package com.example.snsmap;
 
-import android.app.Activity;
+import java.util.List;
+
 import android.content.Context;
-import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Paint.Style;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Adapter;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -21,36 +23,82 @@ public class ImageAdapter extends ArrayAdapter<Drawable> {
 	
 	private Context mContext;
 	private final LayoutInflater mInflater;
-	private IconListData[] iconList = IconListData.values();
+	//private IconListData[] iconList = IconListData.values();
+	private List<Icons> list;
+	private int iconNum,oldIcon;
 	
-	public ImageAdapter(Context _mContext){
+	public ImageAdapter(Context _mContext,List<Icons> icons){
 		super(_mContext,0);
 		this.mContext = _mContext;
 		this.mInflater = (LayoutInflater)this.mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.list = icons;
 	}
 	
+	public void setIconNum(int iconNum){
+		this.oldIcon = this.iconNum;
+		this.iconNum = iconNum;
+	}
 
-	//add‚µ‚½‰ñ”ŒJ‚è•Ô‚³‚ê‚éHposition‚ÅƒJƒEƒ“ƒg
+	//addï¿½ï¿½ï¿½ï¿½ï¿½ñ”ŒJï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½Hpositionï¿½ÅƒJï¿½Eï¿½ï¿½ï¿½g
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
-		
+		// TODO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½Eï¿½Xï¿½^ï¿½u
+		Bitmap bmp;
 		View row = convertView;
-		ImageView iv = new ImageView(this.mContext);
+		ImageView iv;
 		LinearLayout layout = new LinearLayout(this.mContext);
 		
-		if(row == null){
+		
+		//if(row == null){
 			layout = new LinearLayout(this.mContext);
 			layout.setOrientation(LinearLayout.VERTICAL);
 			
-			row = mInflater.inflate(R.layout.iconlist, null);
+			row = mInflater.inflate(R.layout.gridicon, null);
 			
 			iv = (ImageView)row.findViewById(R.id.imageView1);
 			
-			iv.setImageResource(this.iconList[position].getId());
+			bmp = BitmapFactory.decodeResource(mContext.getResources(), list.get(position).resoce);
+			bmp = Bitmap.createScaledBitmap(bmp, 90, 90, false);
+			
+			iv.setImageBitmap(bmp);
+			if(list.get(position).isChecked){
+				Canvas canvas = new Canvas(bmp);
+				Paint paint = new Paint();
+				paint.setStrokeWidth(3);
+				paint.setStyle(Style.STROKE);
+				paint.setColor(Color.RED);
+				Rect rect = new Rect(0, 0, 90, 90);
+
+				canvas.drawRect(rect, paint);
+			}/*	ç‰¹å®šã®éƒ¨åˆ†ã®ã¿å†æç”»ã—ã‚ˆã†ã¨ã—ãŸã‚‰
+			ã‚°ãƒªãƒƒãƒ‰å†…éƒ¨ã®é †ç•ªãŒå…¥ã‚Œæ›¿ã‚ã£ãŸä¸æ€è­°
+			ãƒ‘ãƒ•ã‚©æ‚ªã„ã‘ã©æ¯å›æç”»ã—ã¦ã¾ã™
 		}else{
+			//if(position == iconNum){
+				iv = (ImageView)row.findViewById(R.id.imageView1);
+				bmp = BitmapFactory.decodeResource(mContext.getResources(), list.get(position).resoce);
+				bmp = Bitmap.createScaledBitmap(bmp, 90, 90, false);
+				
+				Canvas canvas = new Canvas(bmp);
+				Paint paint = new Paint();
+				paint.setStrokeWidth(3);
+				paint.setStyle(Style.STROKE);
+				paint.setColor(Color.RED);
+				Rect rect = new Rect(0, 0, 90, 90);
+				
+				canvas.drawRect(rect, paint);
+
+				iv.setImageBitmap(bmp);
+			}
+			if(position == oldIcon){
+				iv = (ImageView)row.findViewById(R.id.imageView1);
+				bmp = BitmapFactory.decodeResource(mContext.getResources(), list.get(position).resoce);
+				bmp = Bitmap.createScaledBitmap(bmp, 90, 90, false);
+								
+				iv.setImageBitmap(bmp);
+			}
 			iv=(ImageView)row.getTag();
-		}
+		}*/
 		
 		return row;
 	}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    
+
+    <!-- 項目にフォーカス有り　かつ　押されていない　-->
+    <item android:drawable="@color/brack" android:state_focused="true" android:state_pressed="false"/>
+    
+    <!-- 項目にフォーカス有り　かつ　押されている　-->
+    <item android:drawable="@color/brack" android:state_focused="true" android:state_pressed="true"/>
+
+    <!-- 項目にフォーカスなし　かつ　押されている　-->
+    <item android:drawable="@color/brack" android:state_focused="false" android:state_pressed="true"/>
+    
+</selector>
