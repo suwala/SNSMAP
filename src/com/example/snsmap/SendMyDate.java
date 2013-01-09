@@ -122,14 +122,18 @@ implements OnCancelListener{
 				;
 			
 			JSONArray array = new JSONArray(sLine);
-			if(array.length() == 0)
-				return new Object[]{0};
+			if(array.length() == 1)
+				return new Object[]{"0"};
 			JSONObject json = array.getJSONObject(0);
 			
 			Iterator it = json.keys();
 			Person[] persons = new Person[array.length()];
 			
-			int i=0;
+			json= array.getJSONObject(0);
+			persons[0] = new Person();
+			persons[0].setIconNumber(json.getInt("count"));
+			
+			int i=1;
 			String[] dateStr;
 			String[] gp;
 			while(i<array.length()){

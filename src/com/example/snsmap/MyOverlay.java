@@ -139,14 +139,16 @@ public class MyOverlay extends Overlay implements OnGestureListener,OnDoubleTapL
 	}
 
 	private synchronized void setSendDate(){
-		final EditText et = new EditText(context);
+		View view = mInflater.inflate(R.layout.sendview, null);
+		
+		final EditText et = (EditText)view.findViewById(R.id.editText1);
 		et.setHint(R.string.et_send_hint);
 		et.setInputType(InputType.TYPE_CLASS_TEXT);
 		InputFilter[] inputFilters = new InputFilter[1];
 		inputFilters[0] = new InputFilter.LengthFilter(144);
 		et.setFilters(inputFilters);
 		
-		View view = mInflater.inflate(R.layout.sendview, null);
+		
 		final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup1);		
 		
 		
@@ -156,6 +158,7 @@ public class MyOverlay extends Overlay implements OnGestureListener,OnDoubleTapL
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
 					String messa = et.getText().toString();
+					Log.d("send",et.getText().toString());
 					int id = radioGroup.getCheckedRadioButtonId();
 					String idStr;
 					if(id == R.id.radio0)
