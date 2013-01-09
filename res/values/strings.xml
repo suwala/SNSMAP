@@ -28,6 +28,7 @@
     <string name="noname_group">グループ名を入力してください</string>
     <string name="CREATE_SAME_NAME">同名のグループがあります</string>
     <string name="CREATE_GROUP">グループを作成しました</string>
+    <string name="TOAST_DELETE">このグループからデータを削除しました</string>
     
     <string name="btn_newgroup">グループの作成</string>
     <string name="btn_showgroup">グループの一覧</string>

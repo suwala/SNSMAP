@@ -85,6 +85,26 @@ public class MyOverlay extends Overlay implements OnGestureListener,OnDoubleTapL
 
 	public void onLongPress(MotionEvent event) {
 		Log.d("myOverlay","LongPressssssssssssss");
+		new AlertDialog.Builder(context).setMessage("").setPositiveButton("OK", new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface arg0, int arg1) {
+				// TODO Auto-generated method stub
+				DeleteMyDate delete = new DeleteMyDate(context,MainMap.DELETE_DATE);
+				String uuid = MyDate.getUuid().toString();
+				String mapGroup = MainMap.groupName;
+				
+				//ログインしているのにpassはいるのか
+				delete.execute(MainMap.MODE_DELETE,mapGroup,null,uuid);
+			}
+		}).setNegativeButton("Cancel", new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface arg0, int arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+		}).show();
 		
 	}
 

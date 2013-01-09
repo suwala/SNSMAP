@@ -35,6 +35,7 @@ public class MainMap extends MapActivity implements Callback,LocationCallback{
 	static final String MODE_LOGIN = "login";
 	static final String MODE_CREATE = "create";
 	static final String MODE_UPDATE = "update";
+	static final String MODE_DELETE = "delete";
 	static final String URL = "http://suwashimizu.ap01.aws.af.cm/start/snsmap.php";
 
 	private final int GROUP = 1;
@@ -49,6 +50,7 @@ public class MainMap extends MapActivity implements Callback,LocationCallback{
 	private static final int MEMBER_LIST = 2;//mode,login
 	private static final int CREATE_CODE = 3;//mode,create
 	public static final int SEND_DATE = 4;//mode,create
+	public static final int DELETE_DATE = 5;//mode,delete
 
 	public static String groupName;
 
@@ -72,6 +74,7 @@ public class MainMap extends MapActivity implements Callback,LocationCallback{
 	public static final String NOT_CONECUT = "-1";
 	public static final String NOT_IN_GROUP = "-303";
 	public static final String MISSMATH_PASS = "-201";
+	public static final String DELETE_OK="501";
 
 	private MyOverlay myOverlay;
 	private GroupMemberOverlay memberOverlay;
@@ -345,6 +348,16 @@ public class MainMap extends MapActivity implements Callback,LocationCallback{
 					Toast.makeText(this, (String)result[1]+getResources().getString(R.string.CREATE_GROUP), Toast.LENGTH_SHORT).show();
 				}
 			}
+			
+			if(DELETE_DATE == requestCode){
+				if(result == null){
+					Toast.makeText(this, R.string.notAcces, Toast.LENGTH_SHORT).show();
+					return;
+				}
+				String echo = (String)result[0];
+				if(echo.equals(DELETE_OK))
+					Toast.makeText(this, R.string.TOAST_DELETE, Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 
@@ -409,7 +422,7 @@ public class MainMap extends MapActivity implements Callback,LocationCallback{
 			SharedPreferences prefs = getSharedPreferences("pass", MODE_PRIVATE);
 			return prefs.getString("pass", "");
 		}
-		return null;		
+		return null;
 	}
 
 	private String[] readGroupAndPass(){

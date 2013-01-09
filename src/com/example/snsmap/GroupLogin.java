@@ -185,7 +185,6 @@ implements OnCancelListener{
 			callback.callback(Callback.ERROR, requestCode, result);
 		else
 			callback.callback(Callback.SUCCESS, requestCode, result);
-		
 	}
 }
 

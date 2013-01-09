@@ -188,20 +188,21 @@ public final class R {
     public static final class string {
         public static final int CREATE_GROUP=0x7f070019;
         public static final int CREATE_SAME_NAME=0x7f070018;
+        public static final int TOAST_DELETE=0x7f07001a;
         public static final int app_name=0x7f070000;
-        public static final int btn_config=0x7f07001c;
-        public static final int btn_count=0x7f07001f;
-        public static final int btn_help=0x7f07001d;
-        public static final int btn_newgroup=0x7f07001a;
-        public static final int btn_now=0x7f070020;
-        public static final int btn_showgroup=0x7f07001b;
+        public static final int btn_config=0x7f07001d;
+        public static final int btn_count=0x7f070020;
+        public static final int btn_help=0x7f07001e;
+        public static final int btn_newgroup=0x7f07001b;
+        public static final int btn_now=0x7f070021;
+        public static final int btn_showgroup=0x7f07001c;
         public static final int days_ago=0x7f07000f;
-        public static final int dialog_messa_title=0x7f070025;
-        public static final int edit_hint_user=0x7f070022;
+        public static final int dialog_messa_title=0x7f070026;
+        public static final int edit_hint_user=0x7f070023;
         public static final int edit_name_hint=0x7f070013;
         public static final int edit_pass_hint=0x7f070014;
         public static final int edit_pass_set=0x7f070015;
-        public static final int et_send_hint=0x7f070026;
+        public static final int et_send_hint=0x7f070027;
         public static final int houh_ago=0x7f070010;
         public static final int logCheck=0x7f07000a;
         public static final int logName=0x7f070007;
@@ -219,15 +220,15 @@ public final class R {
         public static final int pass_missmatch=0x7f070016;
         public static final int sec_ago=0x7f070012;
         public static final int session=0x7f07000e;
-        public static final int text_group=0x7f07001e;
-        public static final int text_icon_set=0x7f070023;
-        public static final int text_user_name=0x7f070021;
+        public static final int text_group=0x7f07001f;
+        public static final int text_icon_set=0x7f070024;
+        public static final int text_user_name=0x7f070022;
         public static final int title_activity_main=0x7f070002;
-        public static final int toast_noname=0x7f070024;
-        public static final int toast_not_sesson=0x7f07002a;
-        public static final int toast_send_miss=0x7f070028;
-        public static final int toast_send_no_group=0x7f070029;
-        public static final int toast_send_ok=0x7f070027;
+        public static final int toast_noname=0x7f070025;
+        public static final int toast_not_sesson=0x7f07002b;
+        public static final int toast_send_miss=0x7f070029;
+        public static final int toast_send_no_group=0x7f07002a;
+        public static final int toast_send_ok=0x7f070028;
         public static final int url=0x7f07000c;
     }
     public static final class style {
